@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="3.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+    <script>
+        const kata = "DUMBWAYS"
+        var kataLength = kata.length - 1
+        const kataToArray = kata.split("")
+
+        //  row 
+        var makeRow = document.createElement("div")
+        makeRow.className = "row"
+
+        // col
+        var makeCol = document.createElement("div")
+        makeCol.className = "col"
+
+
+        for (let i = 0; i < kata.length; i++) {
+            document.getElementById('root').appendChild(makeRow.cloneNode(true))
+            var classRowLength = document.getElementsByClassName("row")
+            var lastIndexRow = classRowLength.length - 1
+
+            for (let y = 0; y < kata.length; y++) {
+                document.getElementsByClassName('row')[lastIndexRow].appendChild(makeCol.cloneNode(true))
+                var classColLength = document.getElementsByClassName("col")
+                var lastIndexCol = classColLength.length - 1
+                if (i === y || kataLength === y) {
+
+                    var text = document.createTextNode(`${kataToArray[y]}`)
+                    document.getElementsByClassName('col')[lastIndexCol].appendChild(text)
+
+                } else {
+                    var text = document.createTextNode(` `)
+                    document.getElementsByClassName('col')[lastIndexCol].appendChild(text)
+                }
+
+            }
+
+            kataLength--
+
+        }
+
+        // document.getElementById('root').appendChild(makeRow)
+        // document.getElementById('root').appendChild(makeRow.cloneNode(true))
+        // document.getElementById('root').appendChild(makeRow.cloneNode(true))
+        // var classRowLength = document.getElementsByClassName("row")
+        // var lastIndex = classRowLength.length-1
+        // // console.log(lastIndex, "last")
+        // document.getElementsByClassName('row')[lastIndex].appendChild(makeCol)
+        // makeRow.appendChild("asdasdsa")
+    </script>
+</body>
+
+</html>
